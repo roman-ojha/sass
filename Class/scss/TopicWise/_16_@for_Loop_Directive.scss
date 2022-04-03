@@ -1,0 +1,29 @@
+/*
+    -> @for <var> from <start> through <end>{
+        // statement
+    }
+    -> EX:
+        -> for $i from 1 through 3{
+            .list-#{$i}{
+                width:100px * $i;
+            }
+        }
+*/
+
+@for $i from 1 through 3 {
+  // for loop iteration is: 1,2,3
+  .list-#{$i} {
+    width: 100px * $i;
+    background-color: darken(pink, $i * 10);
+    padding: 10px * $i;
+  }
+}
+
+@for $i from 1 to 3 {
+  // for loop iteration is: 1,2
+  .list-#{$i} {
+    width: 100px * $i;
+    background-color: darken(pink, $i * 10);
+    padding: 10px * $i;
+  }
+}
