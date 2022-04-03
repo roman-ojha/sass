@@ -1,0 +1,53 @@
+/*
+    -> @each <var> in <list or map>{
+        //statement
+    }
+
+    => 3 Types of @each Loop Directive:
+        -> @each with simple list
+        -> Multiple assignments(multi-dimensional list)
+        -> Multiple Assignment with Maps
+*/
+
+@each $i in (normal, bold, italic) {
+  // (normal,bold,italic) is list
+  .#{$i} {
+    font-weight: $i;
+  }
+}
+
+/*
+    Output:
+        .normal{
+            font-weight:normal;
+        }
+       .bold{
+            font-weight:bold;
+        } 
+       .italic{
+            font-weight:italic;
+       }
+*/
+
+// Multiple assignments(multi-dimensional list)
+$list: ((normal, bold, 10px), (emphasis, italic, 15px));
+@each $name, $style, $size in $list {
+  .#{$name} {
+    font-weight: $style;
+    font-size: $size;
+  }
+}
+
+// -> Multiple Assignment with Maps
+$map: (
+  normal: 12px,
+  bold: 13px,
+  italic: 14px,
+);
+@each $i, $f-size in $map {
+  // key,value
+  .#{$i} {
+    font-weight: $i;
+    font-size: $f-size;
+  }
+}
