@@ -52,13 +52,13 @@
 
 // Scss varialbes doesn't not compile the variable into the 'css' variable but it will actually compile 'Scss' varialbe into the 'css' value
 // code is in '_variables.scss'
-@import "./TopicWise/variables";
+@import "./TopicWise/01_variables";
 
 // Scss Maps: ======================================================
-@import "./TopicWise/map_function";
+@import "./TopicWise/11_map_function";
 
 // Nesting: ====================================================
-@import "./TopicWise/nesting";
+@import "./TopicWise/02_nesting";
 
 // Seperating Sass File(Partials) ===========================================
 // in Sass we can create other sass file and include in that sass file
@@ -69,13 +69,13 @@
 @import "./resets";
 
 // Functions ================================================================
-@import "./TopicWise/function";
+@import "./TopicWise/05_function";
 
 // Mixin ============================================================
-@import "./TopicWise/mixin";
+@import "./TopicWise/03_mixin";
 
 // Extend ==========================================================
-@import "./TopicWise/extend";
+@import "./TopicWise/08_color_function";
 
 // Operator ================================================
-@import "./TopicWise/operator";
+@import "./TopicWise/04_operator";
