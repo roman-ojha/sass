@@ -1,0 +1,105 @@
+/*
+    -> Control Directives of Sass:
+        1) @if and @else
+        2) @for
+        3) @each
+        4) while
+
+    => @if and @else
+        -> @if <Condition>{
+            // Statement
+        }
+        -> EX:
+            -> $test:3;
+            -> p{
+                @if $test<5{
+                    color:blue;
+                }@else{
+                    color:red;
+                }
+            }
+*/
+
+$test: 3;
+
+p {
+  @if $test<5 {
+    // if condition become true that we will execute bellow statement
+    color: blue;
+  } @else {
+    color: red;
+  }
+  //   outside of the @if statement
+  font-size: 12px;
+  @if $test==2 {
+    //   another @if state in same 'p' selector
+    text-decoration: underline;
+  } @else if $test==3 and $test==4 {
+    // else if directive and 'and' for multiple condition checker
+    text-decoration: none;
+  } @else {
+    text-decoration: line-through;
+  }
+}
+
+@mixin changeColor($value) {
+  font-size: $value;
+  @if $value > 0 and $value <=20 {
+    color: green;
+  } @else if $value > 20 and $value <=50 {
+    color: blue;
+  } @else {
+    color: red;
+  }
+}
+
+.test {
+  @include changeColor(15);
+}
+
+.mybox {
+  background: black;
+  color: #fff;
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mybox2 {
+  background: lightgray;
+  color: black;
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// here 'mybox' and 'mybox2' have 4 same property and value, with 2 different property and value but again have to create different property and value for each selector
+
+// to solve the problem we can do this
+@mixin box($value) {
+  @if $value == dark {
+    background-color: black;
+    color: #fff;
+  } @else if $value ==light {
+    background: lightgray;
+    color: black;
+  }
+}
+
+.mybox {
+  @include box(light);
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mybox2 {
+  @include box(dark);
+  padding: 20px;
+  margin: 100px;
+  width: 200px;
+  font-family: Arial, Helvetica, sans-serif;
+}
