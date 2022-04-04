@@ -1,0 +1,26 @@
+/*
+    => @while is conditional based loop, but @for and @each aren't conditional based
+    => @while Loop directive steps:
+        1) initialization
+        2) condition
+        3) increment/decrement
+    => @while(condition){
+        // statement
+    }
+*/
+
+// initialization
+$i: 10;
+$f-size: 10;
+
+// while condition
+@while $i<=30 {
+  // statement
+  .padding-#{$i} {
+    padding-left: 1px * $i;
+    font-size: $f-size + px;
+  }
+  // increment/decrement
+  $i: $i + 10;
+  $f-size: $f-size + 2;
+}
