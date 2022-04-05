@@ -17,6 +17,9 @@
     */
 }
 
+@use "sass:map";
+// if we are using sass map and there function we have to include this
+
 $breakpoints: (
   small: 4em,
   medium: 65em,
