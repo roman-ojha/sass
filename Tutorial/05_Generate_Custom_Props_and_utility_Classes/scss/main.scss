@@ -1,6 +1,7 @@
 @use "./abstracts/colors" as *;
 @use "./abstracts/type-scale" as *;
 @use "./abstracts/media-query" as *;
+@use "./base/reset";
 
 :root {
   // here we are create custom property from the color value that we have create in sass, so if we need these value inside sass we can use sass map but if you want to use custom property that we can use the generated property from the map
@@ -29,3 +30,29 @@
     }
   }
 }
+
+// And also we can create our own utility classes using these custom properties
+
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .text-#{$color}-#{$shade} {
+      // creating utility classes for text color
+      color: var(--clr-#{$color}-#{$shade});
+    }
+    .bg-#{$color}-#{$shade} {
+      // creating utility classes for background color
+      background-color: var(--clr-#{$color}-#{$shade});
+    }
+  }
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+// Conclusion:
+//  now i can use generated custom properties and utility classes
