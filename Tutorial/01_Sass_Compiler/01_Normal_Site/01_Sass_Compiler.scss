@@ -1,0 +1,16 @@
+/*
+    *) We will use npm package to compile sass
+        -> npm init -y
+        -> get all the package.json to setup sass:
+            -> "start" script is for dev environment
+            -> "build" script is for build project
+            -> NOTE: this compiler process for normal html,css files
+    
+    => Try to gitignore 'public' folder as well
+*/
+// compiling assets:
+// -> "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
+// -> "watch:assets": "onchange \"./src/assets/**/*\" -- npm run copy:assets",
+//      -> /**/* : this will look for any file that is inside the 'assets' folder and even it is nested with in the folder
+
+// NOTE: you can make this kind of watch for any any file
