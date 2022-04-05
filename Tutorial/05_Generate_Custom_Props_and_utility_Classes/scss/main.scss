@@ -1,0 +1,31 @@
+@use "./abstracts/colors" as *;
+@use "./abstracts/type-scale" as *;
+@use "./abstracts/media-query" as *;
+
+:root {
+  // here we are create custom property from the color value that we have create in sass, so if we need these value inside sass we can use sass map but if you want to use custom property that we can use the generated property from the map
+
+  //   Custom Property for Color:
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  //   Custom Property for Fonts
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size==small {
+      // custom property for small screen size
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      // custom property for media query
+      @include mq(medium) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+}
