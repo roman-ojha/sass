@@ -11,7 +11,7 @@
   }
   &__paragraph1 {
     //   but we can use this as well to select the element
-    // & = parent
+    // & = 'main' (parent)
     font-weight: map-get($font-weights, $key: bold);
   }
   #{&}__paragraph1 {
@@ -21,6 +21,17 @@
       // here we are again nesting pseudo class
       color: pink;
     }
+  }
+
+  & + & {
+    font-size: 2rem;
+    /*
+    Output:
+      -> main + main{
+        font-size:2rem;
+      }
+    // means 'main' class inside the 'main' class apply the style
+  */
   }
 }
 // normally in css we do like this to style child element:

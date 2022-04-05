@@ -1,0 +1,50 @@
+// if you want to use css responsive like this then it will create different media query for all the class we had use it on, so to integrate all of the media query according to there breakpoint what we can do is we ca use css post processors
+
+.card {
+  padding: 1rem;
+
+  @media (min-width: 45em) {
+    padding: 2em;
+  }
+  /*
+  Output:
+        .card{
+            padding:1rem;
+        }
+        @media (min-width: 45em){
+            padding:2em;
+        }
+    */
+}
+
+@use "sass:map";
+// if we are using sass map and there function we have to include this
+
+$breakpoints: (
+  small: 4em,
+  medium: 65em,
+  large: 90em,
+);
+
+@mixin mq($key) {
+  $size: map.get($breakpoints, $key);
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+.card {
+  padding: 1rem;
+
+  @include mq(small) {
+    padding: 3rem;
+  }
+
+  @include mq(medium) {
+    padding: 3rem;
+  }
+
+  @include mq(large) {
+    padding: 3rem;
+  }
+}
