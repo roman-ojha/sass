@@ -1,0 +1,5 @@
+@use "../abstracts/fonts";
+
+.card {
+  font-size: fonts.$font-size;
+}

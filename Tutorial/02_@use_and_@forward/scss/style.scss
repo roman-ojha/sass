@@ -1,0 +1,50 @@
+// the older way to import file is to use @import like:
+// @import "./abstracts/fonts";
+// but now import is kind of deprecated so not recommended to use it any more
+
+// rather we will use @use to import file
+@use "./abstracts/fonts";
+// but it will not work the way that @import do
+// when we use something it's being namespaced
+// so to use it we have to do:
+// fonts.$font-size;
+// the reason this is it prevent for collision of different variables with the same name
+
+@use "./abstracts/colors";
+
+// use @use to import all of the abstract partials first and then all the components like:
+// first @use all variables,abstracts,mixins
+// and then @use components
+
+@use "./components/cards";
+// so if we are declared all variable in other files and @use it on this file but if we are using those variable in ex: './components/cards' file then it will not going to work because '@use "./abstracts/fonts"' this no longer making it globally accessible to what ever comes after words
+// so when we will use @use it is only accessible to that individual files
+// so because of that we again have to use @use in the scss file where we are using those variables
+
+@use "./abstracts/fonts" as *;
+@use "./abstracts/colors" as c;
+// when we are writing as we can change the namespace of it
+// so 'colors' is the file name but we are changing it to 'c' now I access colors using 'c.'
+// and '*' will take away the namespace out and we can use just access what ever inside the file
+
+// but sometimes if we have bunch of component and we have to @use in every single file rather then that what we can do is we can make the file called '_index.scss' in every partial scss folder and use @forward
+// after that  can easily @use the '_index.scss' here
+@use "./abstracts";
+// using '_index.scss'
+// now to use all the variable we will use 'abstracts.<variable_name>'
+
+body {
+  font-size: fonts.$font-size;
+  background-color: map-get(
+    map-get($map: colors.$colors, $key: primary),
+    $key: 500
+  );
+}
+.body {
+  font-size: $font-size;
+  color: c.$test-color;
+}
+
+.forward {
+  font-size: abstracts.$font-size;
+}
