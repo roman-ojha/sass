@@ -61,6 +61,7 @@
 @import "./TopicWise/02_nesting";
 
 // Seperating Sass File(Partials) ===========================================
+// https://youtu.be/g1kF45K-q7o?t=877
 // in Sass we can create other sass file and include in that sass file
 // A partial is simply a sass file named with a leading underscore. So the undersore lets sass know that the file is only a partial, and that it should not generate a CSS file.
 // so the compiler will going to ignore those file that begin with an underscore

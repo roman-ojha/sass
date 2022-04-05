@@ -36,4 +36,7 @@ $base-color: pink;
   //   how much light?
   background: alpha(red);
   // how much trasparent 1 is not trasparent
+  background-color: rgba($color: #ab4c4a, $alpha: 0.1);
+  // now 'rgba' is also the part of sass function
+  // output: rgba(171,76,74,0.1)
 }
