@@ -4,4 +4,9 @@
         "start": "sass --watch scss:css"
     },
     -> here we are saying that watch for scss directory and compile to css directory
+    
+        -> if you want to use npm live server then use:
+            -> npm i -g live-server
+                -> and run:
+                    -> live-server
 */
